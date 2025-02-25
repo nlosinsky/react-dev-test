@@ -1,78 +1,39 @@
-import {Component} from 'react';
-import {Container} from 'react-bootstrap';
+import { Tab, Tabs } from "react-bootstrap";
+
+import ClassBasedSlider from "./components/ClassBasedSlider";
+import SliderWithHooks from "./components/SliderWithHooks";
+import SliderWithReducer from "./components/SliderWithReducer";
+import { SliderWithFirstFetch, SliderWithSecondFetch } from "./components/SlidersWithHOC";
+
 import './App.css';
-class Slider extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            autoplay: false,
-            slide: 0
-        }
-    }
-
-    changeSlide = (i) => {
-        this.setState(({slide}) => ({
-            slide: slide + i
-        }))
-    }
-
-    toggleAutoplay = () => {
-        this.setState(({autoplay}) => ({
-            autoplay: !autoplay
-        }))
-    }
-
-    render() {
-        return (
-            <Container>
-                <div className="slider w-50 m-auto">
-                    <img className="d-block w-100" src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="slide" />
-                    <div className="text-center mt-5">Active slide {this.state.slide} <br/> {this.state.autoplay ? 'auto' : null}</div>
-                    <div className="buttons mt-3">
-                        <button 
-                            className="btn btn-primary me-2"
-                            onClick={() => this.changeSlide(-1)}>-1</button>
-                        <button 
-                            className="btn btn-primary me-2"
-                            onClick={() => this.changeSlide(1)}>+1</button>
-                        <button 
-                            className="btn btn-primary me-2"
-                            onClick={this.toggleAutoplay}>toggle autoplay</button>
-                    </div>
-                </div>
-            </Container>
-        )
-    }
-}
-
-
-// const Slider = (props) => {
-//     return (
-//         <Container>
-//             <div className="slider w-50 m-auto">
-//                 <img className="d-block w-100" src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg" alt="slide" />
-//                 <div className="text-center mt-5">Active slide {this.state.slide} <br/> {this.state.autoplay ? 'auto' : null}</div>
-//                 <div className="buttons mt-3">
-//                     <button
-//                         className="btn btn-primary me-2"
-//                         onClick={() => this.changeSlide(-1)}>-1</button>
-//                     <button
-//                         className="btn btn-primary me-2"
-//                         onClick={() => this.changeSlide(1)}>+1</button>
-//                     <button
-//                         className="btn btn-primary me-2"
-//                         onClick={this.toggleAutoplay}>toggle autoplay</button>
-//                 </div>
-//             </div>
-//         </Container>
-//     )
-// }
-
 
 function App() {
   return (
-        <Slider/>
+    <Tabs
+      defaultActiveKey="classBased"
+      id="uncontrolled-tab-example"
+      className="mb-3"
+    >
+      <Tab eventKey="classBased" title="Class Based Slider">
+        <ClassBasedSlider/>
+      </Tab>
+
+      <Tab eventKey="sliderWithHooks" title="Slider With Hooks">
+        <SliderWithHooks/>
+      </Tab>
+
+      <Tab eventKey="sliderWithRedcucer" title="Slider With Reducer">
+        <SliderWithReducer initial={false}/>
+      </Tab>
+
+      <Tab eventKey="slidersWithHOC" title="Sliders With HOC">
+        <SliderWithFirstFetch/>
+
+        <hr/>
+
+        <SliderWithSecondFetch/>
+      </Tab>
+    </Tabs>
   );
 }
 
