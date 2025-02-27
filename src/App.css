@@ -1,3 +1,23 @@
+.modal-enter {
+    opacity: 0;
+}
+
+.modal-enter-active,
+.modal-enter-done {
+    opacity: 1;
+    visibility: visible;
+    transition: all 200ms;
+}
+
+.modal-exit {
+    opacity: 1;
+}
+
+.modal-exit-active {
+    opacity: 0;
+    transition: all 200ms;
+}
+
 .App {
     text-align: center;
 }
@@ -36,3 +56,5 @@
         transform: rotate(360deg);
     }
 }
+
+
