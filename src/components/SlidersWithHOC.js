@@ -89,4 +89,14 @@ const getDataFromSecondFetch = () => {
 const SliderWithFirstFetch = withSlider(SliderFirst, getDataFromFirstFetch);
 const SliderWithSecondFetch = withSlider(SliderSecond, getDataFromSecondFetch);
 
-export { SliderWithFirstFetch, SliderWithSecondFetch };
+const SlidersWithHOC = () => {
+  return (
+    <>
+      <SliderWithFirstFetch/>
+      <hr/>
+      <SliderWithSecondFetch/>
+    </>
+  )
+}
+
+export default SlidersWithHOC;
