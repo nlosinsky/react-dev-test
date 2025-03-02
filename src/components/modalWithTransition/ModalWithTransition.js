@@ -2,6 +2,8 @@ import { Container } from "react-bootstrap";
 import { useState } from "react";
 import { CSSTransition } from 'react-transition-group';
 
+import './modalWithTransition.css'
+
 const Modal = (props) => {
   const duration = 300;
 

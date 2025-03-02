@@ -5,12 +5,13 @@ import ClassBasedSlider from "./components/ClassBasedSlider";
 import SliderWithHooks from "./components/SliderWithHooks";
 import SliderWithReducer from "./components/SliderWithReducer";
 import { SliderWithFirstFetch, SliderWithSecondFetch } from "./components/SlidersWithHOC";
-import ModalWithTransition from "./components/ModalWithTransition";
+import ModalWithTransition from "./components/modalWithTransition/ModalWithTransition";
+import DonationForm from "./components/donationForm/DonationForm";
 
 import './App.css';
 
 function App() {
-  const [key, setKey] = useState('modalWithTransition');
+  const [key, setKey] = useState('donationForm');
 
   return (
     <Tabs
@@ -40,6 +41,10 @@ function App() {
 
       <Tab eventKey="modalWithTransition" title="Modal With Transition">
         <ModalWithTransition />
+      </Tab>
+
+      <Tab eventKey="donationForm" title="Donation Form">
+        <DonationForm />
       </Tab>
     </Tabs>
   );
